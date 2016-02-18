@@ -2,7 +2,7 @@
 
 use App\modules\pets\core\controllers\PetController;
 ?>
-<div class="box box-default color-palette-box">
+<div class="box box-default color-palette-box animated fadeInUp">
     <div class="box-header with-border">
         <h3 class="box-title"><i class="fa fa-paw"></i> Información de mascotas</h3>
         <div class="pull-right">
@@ -15,7 +15,7 @@ use App\modules\pets\core\controllers\PetController;
             <!--pet's table -->
             <div class="box-body table-responsive no-padding">
                 <div class="col-md-12">
-                    <table class="table table-hover">
+                    <table class="table table-hover animated fadeInDown">
                         <tbody>
                             <tr>
                                 <th>Nombre</th>
@@ -24,12 +24,13 @@ use App\modules\pets\core\controllers\PetController;
                                 <th> </th>
                             </tr>
                             @foreach(PetController::fetchPets($customer->id) as $pet)
-                            <tr>
+                            <tr class="animated fadeInUp">
                                 <td>{{$pet->name}}</td>
                                 <td>{{$pet->type}}</td>
                                 <td>{{$pet->birthdate}}</td>
                                 <td>
                                     <a class='btn btn-xs btn-success' href="#"><i class='fa fa-eye'></i></a>
+                                    <a class='btn btn-xs btn-danger' href="#" onclick="deletePet({{$pet->id}})"><i class='fa fa-trash'></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -37,7 +38,7 @@ use App\modules\pets\core\controllers\PetController;
                     </table>
                 </div>
                 @else
-                <div class="col-md-12">
+                <div class="col-md-12 animated fadeInUp">
                     <div class="callout callout-warning">
                         <h4>No hay mascotas registradas</h4>
                         <p>Puede registrar una mascota nueva desde el menú situado en la esquina superior izquierda de esta caja.</p>
@@ -113,5 +114,13 @@ use App\modules\pets\core\controllers\PetController;
             }).fail(function () {
                 alert("Error al asignar la mascota, revise los campos y si el problema persiste contacte con Inforfenix");
             });
+        }
+        /*
+         * This function deletes a pet
+         */
+        function deletePet(fk_pet){
+            if(confirm("¿Seguro que desea eliminar esta mascota?")){
+                location.href = "";
+            }
         }
     </script>

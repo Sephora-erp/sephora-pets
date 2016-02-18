@@ -21,6 +21,11 @@ class pets {
             'type' => 'POST',
             'url' => '/pet/new',
             'action' => '\App\modules\pets\core\controllers\PetController@actionCreate'
+        ],
+        1 => [
+            'type' => 'GET',
+            'url' => '/pet/delete/{id}',
+            'action' => '\App\modules\pets\core\controllers\PetController@actionDelete'
         ]
     ];
     //Menus
