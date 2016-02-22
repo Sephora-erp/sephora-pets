@@ -26,6 +26,16 @@ class pets {
             'type' => 'GET',
             'url' => '/pet/delete/{id}',
             'action' => '\App\modules\pets\core\controllers\PetController@actionDelete'
+        ],
+        2 => [
+            'type' => 'GET',
+            'url' => '/pet/fetch/{id}',
+            'action' => '\App\modules\pets\core\controllers\PetController@actionFetch'
+        ],
+        3 => [
+            'type' => 'POST',
+            'url' => '/pet/upload',
+            'action' => '\App\modules\pets\core\controllers\PetController@ajaxUploadFile'
         ]
     ];
     //Menus
