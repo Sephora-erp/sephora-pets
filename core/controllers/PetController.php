@@ -31,6 +31,16 @@ class PetController extends Controller {
     }
 
     /*
+     * Deletes the pet in question
+     */
+
+    public function actionDelete($id) {
+        $pet = Pet::find($id);
+        $pet->delete();
+        return redirect('/');
+    }
+
+    /*
      * Creates the pet entry for the client
      */
 
